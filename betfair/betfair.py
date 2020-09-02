@@ -39,13 +39,13 @@ class Betfair(object):
     :param int timeout: Optional timeout duration (seconds)
     """
     def __init__(self, app_key, cert_file, content_type='application/json', locale=None,
-                 session=None, timeout=None):
+                 session=None, timeout=None, session_token=None):
         self.app_key = app_key
         self.cert_file = cert_file
         self.content_type = content_type
         self.locale = locale
         self.session = session or requests.Session()
-        self.session_token = None
+        self.session_token = session_token
         self.timeout = timeout
 
     @property
