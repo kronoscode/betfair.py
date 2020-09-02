@@ -280,6 +280,28 @@ class Betfair(object):
             model=models.MarketBook,
         )
 
+
+    @utils.requires_login
+    def list_runner_book(
+            self, market_id, selection_id, price_projection=None, order_projection=None,
+            match_projection=None, currency_code=None, locale=None):
+        """
+
+        :param list market_ids: List of market IDs
+        :param PriceProjection price_projection:
+        :param OrderProjection order_projection:
+        :param MatchProjection match_projection:
+        :param str currency_code:
+        :param str locale:
+        """
+        return self.make_api_request(
+            'Sports',
+            'listRunnerBook',
+            utils.get_kwargs(locals()),
+            model=models.MarketBook,
+        )
+        
+
     @utils.requires_login
     def list_market_profit_and_loss(
             self, market_ids, include_settled_bets=False,
